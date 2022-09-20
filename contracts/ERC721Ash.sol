@@ -344,13 +344,6 @@ contract ERC721Ash is IERC721Ash {
     }
 
     /**
-     * @dev Returns the ticket price
-     */
-    function ticketPrice() public view virtual returns (uint256) {
-        return _ticketPrice;
-    }
-
-    /**
      * Returns the packed ownership data of `tokenId`.
      */
     function _packedOwnershipOf(uint256 tokenId) private view returns (uint256) {
@@ -449,6 +442,13 @@ contract ERC721Ash is IERC721Ash {
      */
     function _setTicketPrice(uint256 newTicketPrice) internal virtual  {
         _ticketPrice = newTicketPrice;
+    }
+
+    /**
+     * @dev Returns the ticket price
+     */
+    function ticketPrice() public view virtual returns (uint256) {
+        return _ticketPrice;
     }
 
     modifier checkTicket() {

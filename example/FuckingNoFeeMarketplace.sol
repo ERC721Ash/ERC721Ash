@@ -2,7 +2,7 @@
 
 pragma solidity >= 0.8.9 < 0.9.0;
 
-import "../contracts/ERC721Ash.sol";
+import "./ERC721Ash.sol";
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
@@ -23,6 +23,7 @@ contract FuckingNoFeeMarketplace is Ownable, ERC721Ash {
 
     // metadata URI
     string private _baseTokenURI;
+    address devAddr;
 
     constructor(
         uint256 maxBatchSize_,
@@ -33,7 +34,7 @@ contract FuckingNoFeeMarketplace is Ownable, ERC721Ash {
             maxBatchSize_ < collectionSize_,
             "MaxBarchSize should be smaller than collectionSize"
         );
-        address devAddr = msg.sender;
+        devAddr = msg.sender;
         maxPerAddressDuringMint = maxBatchSize_;
         collectionSize = collectionSize_;
         amountForDevs = amountForDevs_;

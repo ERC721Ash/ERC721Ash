@@ -28,7 +28,7 @@ contract FuckingNoFeeMarketplace is Ownable, ERC721Ash {
         uint256 maxBatchSize_,
         uint256 collectionSize_,
         uint256 amountForDevs_
-    ) ERC721A("Fucking No-Fee Marketplace", "FNM") {
+    ) ERC721Ash("Fucking No-Fee Marketplace", "FNM") {
         require(
             maxBatchSize_ < collectionSize_,
             "MaxBarchSize should be smaller than collectionSize"

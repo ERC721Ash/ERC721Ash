@@ -63,7 +63,7 @@ contract FuckingNoFeeMarketplace is Ownable, ERC721Ash {
     // Public Mint
     // *****************************************************************************
     // Public Functions
-    // function donateToDev(uint256 quantity)
+    // function donateToDev(uint256 quantity) // Multiple NFT are allowed
     function donateToDev() // Only 1 NFT per donor
     external payable callerIsUser
     {

@@ -67,7 +67,7 @@ contract FuckingNoFeeMarketplace is Ownable, ERC721Ash {
     function donateToDev() // Only 1 NFT per donor
     external payable callerIsUser
     {
-        uint256 quantity = 1; // Only 1 NFT per donor
+        uint256 quantity = 1; // Optional for Only 1 NFT per donor
         if (balanceOf(msg.sender) == 0) {
             require(isPublicSaleOn(), "Public sale has not begun yet");
             require(

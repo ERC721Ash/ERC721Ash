@@ -19,6 +19,8 @@ contract FuckingNoFeeMarketplace is Ownable, ERC721Ash {
         uint64 publicPriceWei;
     }
 
+    mapping(address => uint256) public donateReceipts;
+
     SaleConfig public saleConfig;
 
     // metadata URI
@@ -54,30 +56,35 @@ contract FuckingNoFeeMarketplace is Ownable, ERC721Ash {
             totalSupply() + quantity <= collectionSize,
             "Reached max supply"
         );
+        donateReceipts[msg.sender] = 0;
         _safeMint(msg.sender, quantity);
     }
 
     // Public Mint
     // *****************************************************************************
     // Public Functions
-    function donateAndMint(uint256 quantity)
+    function donateToDev(uint256 quantity)
     external
     payable
     callerIsUser
     {
-        require(isPublicSaleOn(), "Public sale has not begun yet");
-        require(
-            totalSupply() + quantity <= collectionSize,
-            "Reached max supply"
-        );
-        require(
-            numberMinted(msg.sender) + quantity <= maxPerAddressDuringMint,
-            "Reached max quantity that one wallet can mint"
-        );
-        uint256 priceWei = quantity * saleConfig.publicPriceWei;
-
-        _safeMint(msg.sender, quantity);
-        refundIfOver(priceWei);
+        if (balanceOf(msg.sender) == 0) {
+            require(isPublicSaleOn(), "Public sale has not begun yet");
+            require(
+                totalSupply() + quantity <= collectionSize,
+                "Reached max supply"
+            );
+            require(
+                numberMinted(msg.sender) + quantity <= maxPerAddressDuringMint,
+                "Reached max quantity that one wallet can mint"
+            );
+            donateReceipts[msg.sender] = msg.value;
+            uint256 priceWei = quantity * saleConfig.publicPriceWei;
+            _safeMint(msg.sender, quantity);
+            refundIfOver(priceWei);
+        } else {
+            donateReceipts[msg.sender] += msg.value;
+        }
     }
 
     function justDonateToDev() external payable {
@@ -106,8 +113,17 @@ contract FuckingNoFeeMarketplace is Ownable, ERC721Ash {
         if (!_exists(tokenId)) revert URIQueryForNonexistentToken();
 
         string memory baseURI = _baseTokenURI;
-        return string(abi.encodePacked(baseURI, "uri.json"));
-        // return string(abi.encodePacked(baseURI, Strings.toString(tokenId), ".json"));
+        string memory tokenLevel;
+        if (donateReceipts[ownerOf(tokenId)] >= 10000000000000000) {
+            tokenLevel = "copper";
+        } else if (donateReceipts[ownerOf(tokenId)] >= 100000000000000000) {
+            tokenLevel = "silver";
+        } else if (donateReceipts[ownerOf(tokenId)] >= 1000000000000000000) {
+            tokenLevel = "gold";
+        } else {
+            tokenLevel = "green";
+        }
+        return string(abi.encodePacked(baseURI, tokenLevel, ".json"));
     }
 
     // Contract Controls (onlyOwner)

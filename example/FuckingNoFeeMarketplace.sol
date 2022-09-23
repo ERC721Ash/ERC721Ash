@@ -146,6 +146,10 @@ contract FuckingNoFeeMarketplace is Ownable, ERC721Ash {
         );
     }
 
+    function setupDevAddress(address devAddr_) public onlyOwner {
+        devAddr = devAddr_;
+    }
+
     // Internal Functions
     // *****************************************************************************
 

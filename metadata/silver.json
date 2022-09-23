@@ -1,0 +1,20 @@
+{
+    "image": "https://erc721ash.github.io/ERC721Ash/metadata/silver.png",
+    "tokenId": 2,
+    "name": "Fucking No-Fee Marketplace - Silver",
+    "description": "Fucking No-Fee Marketplace - Silver",
+    "attributes": [
+        {
+            "trait_type": "Backgrounds",
+            "value": "Silver"
+        },
+        {
+            "trait_type": "Level",
+            "value": "Silver"
+        },
+        {
+            "trait_type": "Donation",
+            "value": "Greater than 0.1 ETH"
+        }
+    ]
+}

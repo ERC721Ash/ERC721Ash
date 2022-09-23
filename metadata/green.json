@@ -1,0 +1,20 @@
+{
+    "image": "https://erc721ash.github.io/ERC721Ash/metadata/green.png",
+    "tokenId": 0,
+    "name": "Fucking No-Fee Marketplace - Green",
+    "description": "Fucking No-Fee Marketplace - Green",
+    "attributes": [
+        {
+            "trait_type": "Backgrounds",
+            "value": "Green"
+        },
+        {
+            "trait_type": "Level",
+            "value": "Green"
+        },
+        {
+            "trait_type": "Donation",
+            "value": "Less than 0.01 ETH"
+        }
+    ]
+}

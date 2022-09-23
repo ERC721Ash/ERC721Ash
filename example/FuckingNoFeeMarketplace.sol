@@ -114,16 +114,15 @@ contract FuckingNoFeeMarketplace is Ownable, ERC721Ash {
 
         string memory baseURI = _baseTokenURI;
         string memory tokenLevel;
-        if (donateReceipts[ownerOf(tokenId)] >= 10000000000000000) {
-            tokenLevel = "copper";
+        if (donateReceipts[ownerOf(tokenId)] >= 1000000000000000000) {
+            tokenLevel = "gold";
         } else if (donateReceipts[ownerOf(tokenId)] >= 100000000000000000) {
             tokenLevel = "silver";
-        } else if (donateReceipts[ownerOf(tokenId)] >= 1000000000000000000) {
-            tokenLevel = "gold";
+        } else if (donateReceipts[ownerOf(tokenId)] >= 10000000000000000) {
+            tokenLevel = "copper";
         } else {
             tokenLevel = "green";
-        }
-        return string(abi.encodePacked(baseURI, tokenLevel, ".json"));
+        } return string(abi.encodePacked(baseURI, tokenLevel, ".json"));
     }
 
     // Contract Controls (onlyOwner)

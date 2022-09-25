@@ -444,13 +444,6 @@ contract ERC721Ash is IERC721Ash {
         _ticketPrice = newTicketPrice;
     }
 
-    /**
-     * @dev Returns the ticket price
-     */
-    function ticketPrice() public view virtual returns (uint256) {
-        return _ticketPrice;
-    }
-
     modifier checkTicket() {
         require(activeTicketAmount(msg.sender) > 0, "activeTicketAmount must be greater than 0");
         _;
@@ -710,7 +703,6 @@ contract ERC721Ash is IERC721Ash {
         uint256 tokenId,
         bytes memory _data
     ) public payable virtual override {
-        _burnTicket(ownerOf(tokenId));
         transferFrom(from, to, tokenId);
         if (to.code.length != 0)
             if (!_checkContractOnERC721Received(from, to, tokenId, _data)) {

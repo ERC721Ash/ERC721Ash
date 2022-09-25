@@ -424,7 +424,7 @@ contract ERC721Ash is IERC721Ash {
     /**
      * @dev Returns the total amount of tickets.
      */
-    function totalTicketAmount(address owner) public view virtual returns (uint256) {
+    function ticketAmount(address owner) public view virtual returns (uint256) {
         if (owner == address(0)) revert TicketAmountQueryForZeroAddress();
         return _passTicket[owner].totalTicketAmount;
     }
@@ -467,19 +467,14 @@ contract ERC721Ash is IERC721Ash {
      *
      */
     function _purchaseTicket(uint256 quantity) internal virtual {
-        require(quantity > 0, "Cannot buy 0 tickets");
-        require(_ticketPrice > 0, "Ticket price is not set");
-        require(_ticketPrice * quantity <= msg.value, "Not enough Ether to buy tickets");
-
         _passTicket[msg.sender].activeTicketAmount += quantity;
         _passTicket[msg.sender].totalTicketAmount += quantity;
     }
 
-    function _burnTicket(uint256 quantity) internal virtual {
-        require(quantity > 0, "Cannot burn 0 tickets");
-        require(_passTicket[msg.sender].activeTicketAmount >= quantity, "Not enough tickets to burn");
+    function _burnTicket(address owner) internal virtual {
+        require(_passTicket[msg.sender].activeTicketAmount > 0, "Not enough tickets to burn");
 
-        _passTicket[msg.sender].activeTicketAmount -= quantity;
+        _passTicket[owner].activeTicketAmount -= 1;
     }
 
     // =============================================================
@@ -621,8 +616,8 @@ contract ERC721Ash is IERC721Ash {
         address from,
         address to,
         uint256 tokenId
-    ) public payable virtual override checkTicket {
-        _burnTicket(1);
+    ) public payable virtual override {
+        _burnTicket(ownerOf(tokenId));
         
         uint256 prevOwnershipPacked = _packedOwnershipOf(tokenId);
 
@@ -714,8 +709,8 @@ contract ERC721Ash is IERC721Ash {
         address to,
         uint256 tokenId,
         bytes memory _data
-    ) public payable virtual override checkTicket {
-        _burnTicket(1);
+    ) public payable virtual override {
+        _burnTicket(ownerOf(tokenId));
         transferFrom(from, to, tokenId);
         if (to.code.length != 0)
             if (!_checkContractOnERC721Received(from, to, tokenId, _data)) {

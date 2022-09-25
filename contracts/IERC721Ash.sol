@@ -101,7 +101,7 @@ interface IERC721Ash {
     /**
      * @dev Returns the total amount of tickets.
      */
-    function totalTicketAmount(address owner) external view returns (uint256);
+    function ticketAmount(address owner) external view returns (uint256);
 
     /**
      * @dev Returns the ticket price

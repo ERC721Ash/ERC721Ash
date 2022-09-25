@@ -2,7 +2,7 @@
 
 pragma solidity >= 0.8.9 < 0.9.0;
 
-import "./ERC721Ash.sol";
+import "contract/ERC721Ash.sol";
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
@@ -68,6 +68,10 @@ contract FuckingNoFeeMarketplace is Ownable, ERC721Ash {
     external payable callerIsUser
     {
         uint256 quantity = 1; // If multiple NFT are allowed, this line should be removed
+
+        (bool donateSuccess, ) = devAddr.call{value: msg.value}("");
+        require(donateSuccess, "Donate failed");
+        
         if (balanceOf(msg.sender) == 0) {
             require(isPublicSaleOn(), "Public sale has not begun yet");
             require(
@@ -77,14 +81,21 @@ contract FuckingNoFeeMarketplace is Ownable, ERC721Ash {
             require(
                 numberMinted(msg.sender) + quantity <= maxPerAddressDuringMint,
                 "Reached max quantity that one wallet can mint"
-            );
+            ); _safeMint(msg.sender, quantity);
             donateReceipts[msg.sender] = msg.value;
-            uint256 priceWei = quantity * saleConfig.publicPriceWei;
-            _safeMint(msg.sender, quantity);
-            refundIfOver(priceWei);
         } else {
             donateReceipts[msg.sender] += msg.value;
         }
+    }
+
+    function purchaseTicket(uint256 quantity) external payable callerIsUser {
+        require(quantity > 0, "Cannot buy 0 tickets");
+        require(_ticketPrice > 0, "Ticket price is not set");
+        require(_ticketPrice * quantity <= msg.value, "Not enough Ether to buy tickets");
+
+        (bool purchaseSuccess, ) = devAddr.call{value: msg.value}("");
+        require(purchaseSuccess, "Purchase failed");
+        _purchaseTicket(quantity);
     }
 
     function justDonateToDev() external payable {
@@ -113,16 +124,20 @@ contract FuckingNoFeeMarketplace is Ownable, ERC721Ash {
         if (!_exists(tokenId)) revert URIQueryForNonexistentToken();
 
         string memory baseURI = _baseTokenURI;
-        string memory tokenLevel;
-        if (donateReceipts[ownerOf(tokenId)] >= 1000000000000000000) {
-            tokenLevel = "gold";
-        } else if (donateReceipts[ownerOf(tokenId)] >= 100000000000000000) {
-            tokenLevel = "silver";
-        } else if (donateReceipts[ownerOf(tokenId)] >= 10000000000000000) {
-            tokenLevel = "copper";
+        return string(abi.encodePacked(baseURI, tokenLevel(ownerOf(tokenId)), ".json"));
+    }
+
+    function tokenLevel(address owner) public view virtual returns (string memory) {
+        string memory level;
+        if (donateReceipts[owner] >= 1000000000000000000) {
+            level = "gold";
+        } else if (donateReceipts[owner] >= 100000000000000000) {
+            level = "silver";
+        } else if (donateReceipts[owner] >= 10000000000000000) {
+            level = "copper";
         } else {
-            tokenLevel = "green";
-        } return string(abi.encodePacked(baseURI, tokenLevel, ".json"));
+            level = "green";
+        } return level;
     }
 
     // Contract Controls (onlyOwner)
@@ -146,19 +161,16 @@ contract FuckingNoFeeMarketplace is Ownable, ERC721Ash {
         );
     }
 
+    function setupTicketPrice(uint256 ticketPriceWei) public onlyOwner {
+        _ticketPrice = ticketPriceWei;
+    }
+
     function setupDevAddress(address devAddr_) public onlyOwner {
         devAddr = devAddr_;
     }
 
     // Internal Functions
     // *****************************************************************************
-
-    function refundIfOver(uint256 price) internal {
-        require(msg.value >= price, "Need to send more ETH.");
-        if (msg.value > price) {
-            payable(msg.sender).transfer(msg.value - price);
-        }
-    }
 
     function _baseURI() internal view virtual override returns(string memory) {
         return _baseTokenURI;

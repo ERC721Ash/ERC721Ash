@@ -35,7 +35,7 @@ Here's why:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Clone the repo
+### Clone the repo
    ```sh
    git clone https://github.com/ERC721Ash/ERC721Ash.git
    ```

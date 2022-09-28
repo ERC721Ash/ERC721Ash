@@ -92,7 +92,7 @@ Please refer to [example contract](https://github.com/ERC721Ash/ERC721Ash/tree/m
 - [ ] Maintain full test coverage
 - [ ] Apply for EIP standard
 - [ ] Documentation
-    - [ ] English
+    - [x] English
     - [ ] Chinese
     - [ ] Japanese
     - [ ] Others

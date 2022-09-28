@@ -6,7 +6,7 @@ Open Source NFT Royalty Fee Contract Based on ERC-721 Standard <br />
 
 <div align="center">
   <a href="https://github.com/ERC721Ash/ERC721Ash">
-    <img src="imgs/LOGO_D.png" alt="Logo" width="100" height="100">
+    <img src="imgs/LOGO_D.png" alt="Logo">
   </a>
 </div>
 

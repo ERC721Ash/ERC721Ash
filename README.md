@@ -48,7 +48,7 @@ import "ERC721Ash/contracts/ERC721Ash.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Example is Ownable, ERC721Ash {
-    devAddr = msg.sender;
+    address devAddr;
     constructor() ERC721A("Example", "EXP") { devAddr = msg.sender; }
 
     function mint(uint256 quantity) external payable {

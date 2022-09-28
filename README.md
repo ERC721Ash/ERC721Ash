@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <a name="readme-top"></a>
 # ERC-721Æ (ERC-721Ash) [![MIT License][license-shield]][license-url]
-Open Source NFT Royalty Fee Contract Based on ERC-721 Standard <br />
+Open Source NFT Royalty Fee Standard Based on ERC-721 Standard <br />
 > _This is Beta Version. I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. ERC-721Ash is based on ERC-721A, [Please refer to the documentation for more details.](https://chiru-labs.github.io/ERC721A/#/erc721a)_
 
 <div align="center">

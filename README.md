@@ -22,6 +22,16 @@ Here's why:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## [ERC-721](https://eips.ethereum.org/EIPS/eip-721) v.s. [ERC-2981](https://eips.ethereum.org/EIPS/eip-2981)
+
+<div align="center">
+  <a href="https://github.com/ERC721Ash/ERC721Ash">
+    <img src="imgs/AshVs2981.png" alt="Logo">
+  </a>
+</div>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- GETTING STARTED -->
 ## Getting Started
 
@@ -119,9 +129,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Darren K.J. Chen
+Darren K.J. Chen | 
 E-mail: kjchen@protonmail.ch
-Project Link: [https://github.com/ERC721Ash/ERC721Ash](https://github.com/ERC721Ash/ERC721Ash)
+<br />Project Link: [https://github.com/ERC721Ash/ERC721Ash](https://github.com/ERC721Ash/ERC721Ash)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

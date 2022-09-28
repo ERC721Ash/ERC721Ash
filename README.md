@@ -42,7 +42,7 @@ Here's why:
 
 ### Usage
 
-   ```solidity
+```solidity
 pragma solidity ^0.8.4;
 import "ERC721Ash/contracts/ERC721Ash.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";

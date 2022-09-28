@@ -22,7 +22,7 @@ Here's why:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## [ERC-721](https://eips.ethereum.org/EIPS/eip-721) v.s. [ERC-2981](https://eips.ethereum.org/EIPS/eip-2981)
+## [ERC-721Ash](https://eips.ethereum.org/EIPS/eip-721) v.s. [ERC-2981](https://eips.ethereum.org/EIPS/eip-2981)
 
 <div align="center">
   <a href="https://github.com/ERC721Ash/ERC721Ash">

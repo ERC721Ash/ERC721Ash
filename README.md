@@ -16,7 +16,7 @@ Open Source NFT Royalty Fee Standard Based on ERC-721 Standard <br />
 ERC-721Ash is an improved implementation of the IERC721 standard that supports trading tokens for charge royalty fee.
 
 Here's why:
-* Against the zero royalty fee NFT marketplace trading market, such as: X2Y2
+* Against the zero royalty fee NFT marketplace, such as: X2Y2
 * Disruptive Innovation - Revenue Stream, Controlled Liquidity ...
 * More ...
 
@@ -41,8 +41,6 @@ Clone the repo
    ```
 
 ### Usage
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
    ```solidity
 pragma solidity ^0.8.4;
@@ -80,6 +78,8 @@ contract Example is Ownable, ERC721Ash {
 ## Usage Example
 
 Please refer to [example contract](https://github.com/ERC721Ash/ERC721Ash/tree/main/example).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 ## Roadmap

@@ -43,7 +43,8 @@ Here's why:
 ### Usage
 
 ```solidity
-pragma solidity ^0.8.4;
+pragma solidity >= 0.8.9 < 0.9.0;
+
 import "ERC721Ash/contracts/ERC721Ash.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 

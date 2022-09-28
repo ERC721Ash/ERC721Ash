@@ -14,7 +14,7 @@ contract Example is Ownable, ERC721Ash {
         _mint(msg.sender, quantity);
     }
 
-    function purchaseTicket(uint256 quantity) external payable callerIsUser {
+    function purchaseTicket(uint256 quantity) external payable {
         require(quantity > 0, "Cannot buy 0 tickets");
         require(_ticketPrice > 0, "Ticket price is not set");
         require(_ticketPrice * quantity <= msg.value, "Not enough Ether to buy tickets");

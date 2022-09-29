@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Example is Ownable, ERC721Ash {
     address devAddr;
-    constructor() ERC721A("Example", "EXP") { devAddr = msg.sender; }
+    constructor() ERC721Ash("Example", "EXP") { devAddr = msg.sender; }
 
     function mint(uint256 quantity) external payable {
         // `_mint`'s second argument now takes in a `quantity`, not a `tokenId`.

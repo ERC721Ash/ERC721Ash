@@ -16,7 +16,7 @@ Open Source NFT Royalty Fee Standard Based on ERC-721 Standard <br />
 ERC-721Ash is an improved implementation of the IERC721 standard that supports trading tokens for charge royalty fee.
 
 Here's why:
-* Against the zero royalty fee NFT marketplace, such as: X2Y2
+* Fighting Against the zero royalty fee NFT marketplace, such as: X2Y2
 * Disruptive Innovation - Revenue Stream, Controlled Liquidity ...
 * More ...
 

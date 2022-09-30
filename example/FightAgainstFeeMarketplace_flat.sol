@@ -1670,7 +1670,7 @@ contract ERC721Ash is IERC721Ash {
     }
 }
 
-// File: FNM.sol
+// File: FANM.sol
 
 
 
@@ -1681,7 +1681,7 @@ pragma solidity >= 0.8.9 < 0.9.0;
 
 error AddressNotAllowlistVerified();
 
-contract FuckingNoFeeMarketplace is Ownable, ERC721Ash {
+contract FightAgainstNoFeeMarketplace is Ownable, ERC721Ash {
     uint256 public immutable maxPerAddressDuringMint;
     uint256 public immutable collectionSize;
     uint256 public immutable amountForDevs;
@@ -1703,7 +1703,7 @@ contract FuckingNoFeeMarketplace is Ownable, ERC721Ash {
         uint256 maxBatchSize_,
         uint256 collectionSize_,
         uint256 amountForDevs_
-    ) ERC721Ash("Fucking No-Fee Marketplace", "FNM") {
+    ) ERC721Ash("Fight Against No-Fee Marketplace", "FANM") {
         require(
             maxBatchSize_ < collectionSize_,
             "MaxBarchSize should be smaller than collectionSize"

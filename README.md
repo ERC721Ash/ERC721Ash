@@ -1,8 +1,8 @@
 <!-- PROJECT LOGO -->
 <a name="readme-top"></a>
 # ERC-721Æ (ERC-721Ash) [![MIT License][license-shield]][license-url]
-Open Source NFT Royalty Fee Standard Based on ERC-721 Standard <br />
-> _This is Beta Version. I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. ERC-721Ash is based on ERC-721A, [Please refer to the documentation for more details.](https://chiru-labs.github.io/ERC721A/#/erc721a)_
+Open Source, NFT Royalty Fee Standard, Based on ERC-721 Standard <br />
+> _This is Beta Version. I'll be adding more shortly. You may also suggest changes by forking this repo, creating a pull request, or opening an issue. ERC-721Ash is based on ERC-721A; [please refer to the documentation for more details.](https://chiru-labs.github.io/ERC721A/#/erc721a)_
 
 <div align="center">
   <a href="https://github.com/ERC721Ash/ERC721Ash">
@@ -13,12 +13,12 @@ Open Source NFT Royalty Fee Standard Based on ERC-721 Standard <br />
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-ERC-721Ash is an improved implementation of the IERC721 standard that supports trading tokens for charge royalty fee.
+ERC-721Ash is an improved implementation of the IERC721 standard that supports trading tokens for a charged royalty fee.
 
 Here's why:
-* Fighting Against the zero royalty fee NFT marketplace, such as: X2Y2
-* Disruptive Innovation - Revenue Stream, Controlled Liquidity ...
-* More ...
+* Fighting Against the zero royalty fee NFT marketplace, such as X2Y2
+* Disruptive Innovation - Revenue Stream, Controlled Liquidity, Etc
+* Etc.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -103,10 +103,9 @@ Please refer to [example contract](https://github.com/ERC721Ash/ERC721Ash/tree/m
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions make the open-source community a fantastic place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+If you have a suggestion to improve this, please fork the repo and create a pull request. You can also open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)

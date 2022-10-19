@@ -26,7 +26,7 @@ Here's why:
 
 <div align="center">
   <a href="https://github.com/ERC721Ash/ERC721Ash">
-    <img src="imgs/AshVs2981.png" alt="Logo">
+    <img src="https://user-images.githubusercontent.com/43134270/196585470-9d5ec54b-f84c-4aca-afbe-2fa4271b4da2.png" alt="Logo">
   </a>
 </div>
 

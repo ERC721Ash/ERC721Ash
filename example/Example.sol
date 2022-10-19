@@ -2,7 +2,7 @@
 
 pragma solidity >= 0.8.9 < 0.9.0;
 
-import "ERC721Ash/contracts/ERC721Ash.sol";
+import "../contracts/ERC721Ash.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Example is Ownable, ERC721Ash {
